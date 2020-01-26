@@ -2,12 +2,10 @@ package rs.ac.ftn.uns.sep.pcc.controller;
 
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import rs.ac.ftn.uns.sep.pcc.dto.AcquirerRequest;
-import rs.ac.ftn.uns.sep.pcc.service.TransactionRequestService;
+import rs.ac.ftn.uns.sep.pcc.dto.IssuerRequest;
+import rs.ac.ftn.uns.sep.pcc.service.TransactionService;
 
 import javax.servlet.http.HttpServletResponse;
 
@@ -15,13 +13,18 @@ import javax.servlet.http.HttpServletResponse;
 @RequestMapping("/")
 @RequiredArgsConstructor
 public class TransactionController {
-    private final TransactionRequestService transactionRequestService;
+    private final TransactionService transactionService;
 
     @SneakyThrows
     @PostMapping("/bankLookup")
     public void postBankLookup(@RequestBody AcquirerRequest acquirerRequest, HttpServletResponse response) {
-        final String url = transactionRequestService.findBankUrl(acquirerRequest);
+        final String url = transactionService.findBankUrl(acquirerRequest);
 
         response.sendRedirect(url);
+    }
+
+    @PostMapping("/handleTransactionResult")
+    public void getHandleTransactionResult(@RequestBody IssuerRequest issuerRequest) {
+        transactionService.sendTransactionResults(issuerRequest);
     }
 }

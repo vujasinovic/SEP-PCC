@@ -5,7 +5,7 @@ import lombok.Data;
 import java.sql.Date;
 
 @Data
-public class AcquirerRequest {
+public class IssuerRequest {
     private String pan;
 
     private Integer securityCode;
@@ -19,4 +19,8 @@ public class AcquirerRequest {
     private String acquirerOrderId;
 
     private String acquirerTimestamp;
+
+    private String issuerOrderId;
+
+    private String issuerTimestamp;
 }

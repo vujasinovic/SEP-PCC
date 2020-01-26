@@ -10,7 +10,7 @@ import java.sql.Date;
 
 @Entity
 @Data
-public class TransactionRequest {
+public class Transaction {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
@@ -22,6 +22,8 @@ public class TransactionRequest {
     private String holderName;
 
     private Date validTo;
+
+    private String acquirerName;
 
     private String acquirerOrderId;
 
