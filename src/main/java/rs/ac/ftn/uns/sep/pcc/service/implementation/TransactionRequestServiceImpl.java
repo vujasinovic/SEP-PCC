@@ -2,6 +2,7 @@ package rs.ac.ftn.uns.sep.pcc.service.implementation;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
 import rs.ac.ftn.uns.sep.pcc.bom.Bank;
 import rs.ac.ftn.uns.sep.pcc.bom.TransactionRequest;
 import rs.ac.ftn.uns.sep.pcc.dto.AcquirerRequest;
