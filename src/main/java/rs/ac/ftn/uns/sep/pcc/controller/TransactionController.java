@@ -20,7 +20,7 @@ public class TransactionController {
     public void postBankLookup(@RequestBody AcquirerRequest acquirerRequest, HttpServletResponse response) {
         final String url = transactionService.findBankUrl(acquirerRequest);
 
-        //TODO: hit issuer (check HomeController in PCC project)
+        //TODO: hit issuer (check HomeController in Bank project)
         response.sendRedirect(url);
     }
 
