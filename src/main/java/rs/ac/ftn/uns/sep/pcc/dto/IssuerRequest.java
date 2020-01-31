@@ -23,4 +23,6 @@ public class IssuerRequest {
     private String issuerOrderId;
 
     private String issuerTimestamp;
+
+    private Boolean successful;
 }

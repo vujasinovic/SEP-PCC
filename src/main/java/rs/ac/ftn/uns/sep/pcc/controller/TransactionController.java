@@ -20,6 +20,7 @@ public class TransactionController {
     public void postBankLookup(@RequestBody AcquirerRequest acquirerRequest, HttpServletResponse response) {
         final String url = transactionService.findBankUrl(acquirerRequest);
 
+        //TODO: hit issuer (check HomeController in PCC project)
         response.sendRedirect(url);
     }
 
@@ -27,4 +28,6 @@ public class TransactionController {
     public void getHandleTransactionResult(@RequestBody IssuerRequest issuerRequest) {
         transactionService.sendTransactionResults(issuerRequest);
     }
+
+    //TODO open another endpoint that will handle data sent from PCC
 }

@@ -64,6 +64,7 @@ public class TransactionServiceImpl implements TransactionService {
 
         RestTemplate restTemplate = new RestTemplate();
 
+        //TODO: create endpoint in Acquirer that will handle following request (add payment amount to merchant if successful)
         restTemplate.postForEntity(new URL(acquirer.getUrl()).toString(), issuerRequest, IssuerRequest.class);
     }
 }
